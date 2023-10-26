@@ -1,35 +1,28 @@
 import pygame
 
-#initial
-#  the pygame 
+# pygame setup
 pygame.init()
+window_height = 800
+window_width = 600
+screen = pygame.display.set_mode((window_height, window_width))
+# PyGame clock
+clock = pygame.time.Clock()
 
-#setup the window 
-window_width = 800
-window_height = 600
-window ==
-pygame.display.set.mode((window_width,window_height))
-pygame.display.set_caption("Puzzul Game")
-
-#Game loop
 running = True
 while running:
-    #event handling 
+    # poll for events
+    # pygame.QUIT event means the user clicked X to close your window
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-   # update game logic
-   #Render game graphics 
-   window.fill((255, 255, 255))
-   #Draw puzzul pices, backgroud, etc
+    # fill the screen with a color to wipe away anything from last frame
+    screen.fill("blue")
 
-   #update the display
-   pygame.display.flip()
+    # RENDER YOUR GAME HERE
+    # flip() the display to put your work on screen
+    pygame.display.flip()
 
-# Quit the game 
+    clock.tick(60)  # limits FPS to 60
+
 pygame.quit()
-
-
-
-     
