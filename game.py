@@ -19,6 +19,17 @@ bg = pygame.image.load('elephant.jpg')
 bg_rect = bg.get.rect()
 bg_rect.topleft = (0, 0)
 
+font_title = pygame.font.font('Hello Avocado.ttf', 64)
+font_content = pyame.font.font('Hello Avocado.ttf', 40)
+
+play_again_text = font_title.render('play Again?', True, WHITE)
+play_again_rect = play_again_text.get_rect()
+play_again_rect.center = (window_height // 2, window_width // 2 )
+
+continue_text = font_content.render('press space', True, WHITE)
+continue_rect = continue_text.get_rect()
+continue_rect.center = (window_width // 2, window_height // 2 + 50)
+
 img_selected = None
 is_game_over = false
 
@@ -94,6 +105,8 @@ if not is_game_over:
         pygame.draw.rect(screen, cells[i]['border'], cells[i]['rect'], 1)
 else:
     screen.blit(bg, bg_rect)
+    screen.blit(play_again_text, play_again_rect)
+    screen.blit(continue_text, continue_rect)
 
     screen.blit(bg, bg_rect, (400, 300, 100, 100))
 
