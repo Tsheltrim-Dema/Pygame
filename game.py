@@ -19,6 +19,8 @@ bg = pygame.image.load('elephant.jpg')
 bg_rect = bg.get.rect()
 bg_rect.topleft = (0, 0)
 
+img_selected = None
+is_game_over = false
 
 rows = 3
 cols = 3
@@ -52,7 +54,7 @@ while running:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 running = false 
-        if event_type == pygame.MOUSEBUTTONDOWN and event_button == 1:
+        if event_type == pygame.MOUSEBUTTONDOWN and event_button == 1 and not is_game_over:
             mouse_pos = pygame.mouse.get_pos()
 
             for cell in cells:
@@ -74,16 +76,24 @@ while running:
                             selected_img = None
 
                             #check if the puzzul is sloved
+                            is_game_over = True
+                            for cell in cells:
+                                if cell['order'] !=cell['pos']:
+                                    is_game_over = False
+                                    
+                              
 
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("Black")
-
+if not is_game_over:
     for i, val in enumerate(cells):
         pos = cells[i]['pos']
         img_area = pygame.Rect(cells[pos]['rect'].x, cells[pos]['rect'].y, cell_width, cell_height)
         screen.blit(bg, cells[i]['rect'], img_area)
-        pygame.draw.rect(screen, cells[i]['border'])
+        pygame.draw.rect(screen, cells[i]['border'], cells[i]['rect'], 1)
+else:
+    screen.blit(bg, bg_rect)
 
     screen.blit(bg, bg_rect, (400, 300, 100, 100))
 
