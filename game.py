@@ -78,15 +78,15 @@ while running:
                         img_selected = cell
                         cell['border'] = RED
                     else:
-                        current_img = cell
-                        if current_img['order'] != selected_img['order']:
+                       current_img = cell
+                       if img_selected is not None and current_img['order'] != img_selected['order']:
                             #swap the image
-                            temp = selected_img['pos']
-                            cells[selected_img['order']]['pos'] = cells[current_img['order']]['pos']
+                            temp = img_selected['pos']
+                            cells[img_selected['order']]['pos'] = cells[current_img['order']]['pos']
                             cells[current_img['order']]['border'] = temp
 
-                            cells[selected_img['order']]['border'] = WHITE
-                            selected_img = None
+                            cells[img_selected['order']]['border'] = WHITE
+                            img_selected = None
 
                             #check if the puzzul is sloved
                             is_game_over = True
