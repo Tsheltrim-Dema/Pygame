@@ -1,4 +1,7 @@
 import pygame
+import os
+import sys 
+import random
 
 # pygame setup
 pygame.init()
@@ -15,12 +18,11 @@ RED = (255, 0, 0)
 CRIMSON = (220, 0, 0,)
 ORGANGE = (255, 127, 0)
 
-bg = pygame.image.load('elephant.jpg') 
-bg_rect = bg.get.rect()
-bg_rect.topleft = (0, 0)
+path_img = 'elephant.jpg'
+bg = pygame.image.load(path_img).convert()
 
-font_title = pygame.font.font('Hello Avocado.ttf', 64)
-font_content = pyame.font.font('Hello Avocado.ttf', 40)
+font_title = pygame.font.Font('hello_avocado/Hello Avocado.ttf', 64)
+font_content = pygame.font.Font('hello_avocado/Hello Avocado.ttf', 40)
 
 play_again_text = font_title.render('play Again?', True, WHITE)
 play_again_rect = play_again_text.get_rect()
@@ -31,7 +33,7 @@ continue_rect = continue_text.get_rect()
 continue_rect.center = (window_width // 2, window_height // 2 + 50)
 
 img_selected = None
-is_game_over = false
+is_game_over = False
 
 rows = 3
 cols = 3
@@ -47,9 +49,9 @@ print()
 for i in range (num_cells):
     x = (i % rows) * cell_width 
     y = (i // cols) * cell_height
-    rect = pygame.rect(x, y, cell_width, cell_height)
+    rect = pygame.Rect(x, y, cell_width, cell_height)
     rand_pos = random.choice(rand_indexes)
-    rand_indexes.remove(rand_indexes)
+    rand_indexes.remove(rand_pos)
     cells.append({'rect': rect, 'border': WHITE, 'order': i, 'pos':rand_pos})
 
     print(cells[i])
@@ -64,8 +66,8 @@ while running:
         
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                running = false 
-        if event_type == pygame.MOUSEBUTTONDOWN and event_button == 1 and not is_game_over:
+                running = False
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and not is_game_over:
             mouse_pos = pygame.mouse.get_pos()
 
             for cell in cells:
@@ -73,7 +75,7 @@ while running:
                 order = cell['order']
                 if rect.collidepoint(mouse_pos):
                     if not img_selected:
-                        img_selected:
+                        img_selected = cell
                         cell['border'] = RED
                     else:
                         current_img = cell
