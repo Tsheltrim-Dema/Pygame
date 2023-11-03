@@ -2,10 +2,11 @@ import pygame, random
 
 pygame.init()
 
-WINDOW_WIDTH = 880
-WINDOW_HEIGHT = 600
+WINDOW_WIDTH = 600
+WINDOW_HEIGHT = 400
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption('Puzzle Game')
+
 
 FPS = 10
 clock = pygame.time.Clock()
@@ -16,7 +17,7 @@ RED = (255, 0, 0)
 CRIMSON = (220, 20, 60)
 ORANGE = (255, 127, 0)
 
-bg = pygame.image.load('elephant.jpg')
+bg = pygame.image.load('people.jpg')
 bg_rect = bg.get_rect()
 bg_rect.topleft = (0, 0)
 
