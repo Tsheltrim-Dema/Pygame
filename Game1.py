@@ -2,8 +2,8 @@ import pygame, random
 
 pygame.init()
 
-WINDOW_WIDTH = 600
-WINDOW_HEIGHT = 400
+WINDOW_WIDTH = 800
+WINDOW_HEIGHT = 600
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption('Puzzle Game')
 
@@ -14,10 +14,10 @@ clock = pygame.time.Clock()
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
-CRIMSON = (220, 20, 60)
+GREEN = (220, 20, 60)
 ORANGE = (255, 127, 0)
 
-bg = pygame.image.load('people.jpg')
+bg = pygame.image.load('mates.jpg')
 bg_rect = bg.get_rect()
 bg_rect.topleft = (0, 0)
 
@@ -25,28 +25,21 @@ font_title = pygame.font.Font('Hello Avocado.ttf', 64)
 font_content = pygame.font.Font('Hello Avocado.ttf', 40)
 
 # start screen
-title_text = font_title.render('Puzzle Game', True, CRIMSON)
+title_text = font_title.render('Puzzle Game', True, GREEN)
 title_rect = title_text.get_rect()
 title_rect.center = (WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2 - 80)
 
-choose_text = font_content.render('Choose your difficulty', True, CRIMSON)
+choose_text = font_content.render('Welcome to the Puzzle Game', True, GREEN)
 choose_rect = choose_text.get_rect()
 choose_rect.center = (WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2 - 20)
 
-easy_text = font_content.render("Press 'E' - Easy (3x3)", True, ORANGE)
+easy_text = font_content.render("Press 'E' - To Start the Game", True, ORANGE)
 easy_rect = easy_text.get_rect()
 easy_rect.center = (WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2 + 40)
 
-medium_text = font_content.render("Press 'M' - Medium (4x4)", True, ORANGE)
-medium_rect = medium_text.get_rect()
-medium_rect.center = (WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2 + 90)
-
-hard_text = font_content.render("Press 'H' - Hard (5x5)", True, ORANGE)
-hard_rect = hard_text.get_rect()
-hard_rect.center = (WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2 + 140)
 
 # end screen
-play_again_text = font_title.render('Play Again?', True, WHITE)
+play_again_text = font_title.render('Want to Play Again?', True, WHITE)
 play_again_rect = play_again_text.get_rect()
 play_again_rect.center = (WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2)
 
@@ -151,8 +144,6 @@ while running:
         screen.blit(title_text, title_rect)
         screen.blit(choose_text, choose_rect)
         screen.blit(easy_text, easy_rect)
-        screen.blit(medium_text, medium_rect)
-        screen.blit(hard_text, hard_rect)
     else:
 
         screen.fill(WHITE)
