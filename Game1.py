@@ -2,7 +2,7 @@ import pygame, random
 
 pygame.init()
 
-WINDOW_WIDTH = 800
+WINDOW_WIDTH = 700
 WINDOW_HEIGHT = 600
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption('Puzzle Game')
@@ -17,7 +17,7 @@ RED = (255, 0, 0)
 GREEN = (220, 20, 60)
 ORANGE = (255, 127, 0)
 
-bg = pygame.image.load('mates.jpg')
+bg = pygame.image.load('love.jpg')
 bg_rect = bg.get_rect()
 bg_rect.topleft = (0, 0)
 
