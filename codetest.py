@@ -12,7 +12,7 @@ class TestPuzzleGame(unittest.TestCase):
     def test_start_game(self):
         # Set up the game and check if the cells are created correctly
         start_game(self.mode)
-        
+ 
         # Add your assertions based on the expected behavior of start_game
         self.assertEqual(len(cells), self.mode ** 2)  # Assuming cells is a global variable
 
